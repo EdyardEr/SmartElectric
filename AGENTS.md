@@ -12,4 +12,4 @@ AR electrical layout: scan → place outlets/panels → routes + estimate.
 
 **Lang:** Agent EN. Product/UX RU OK. Code EN.
 
-**Sync:** Behavior/schema/stack/phase change → update `docs/` + rules/`AGENTS.md` same change.
+**Sync:** Behavior/schema/stack/phase change → update `docs/` + rules/`AGENTS.md` same change. New caches/builds/secrets/binaries → extend `.gitignore` (and `.cursorignore` if indexed noise).

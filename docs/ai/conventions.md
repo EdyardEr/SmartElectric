@@ -26,5 +26,10 @@ Nav: [docs index](../README.md) · [context map](context-map.md)
 | Unity bootstrap / deploy | `setup/install-and-deploy.md`, `docs/README.md` (Code/Now), `stack.md` versions |
 | RoomModel | `room-model.md`, `room-model.mdc`, serializers |
 | Navigation / process | `docs/README.md`, `context-map.md`, this file |
+| New cache / build / secret / large binary / generated Unity junk | `.gitignore` (and `.cursorignore` if it would bloat the index) |
+
+## Ignore hygiene
+
+When introducing tools or outputs that must not be in git (Unity `Library`, Addressables temp, keystores, local env, scan dumps, IDE junk), **update `.gitignore` in the same change**. Mirror heavy/secret paths in `.cursorignore` when agents should not index them.
 
 Keep rules terse; explanations stay in `docs/`.

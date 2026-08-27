@@ -10,4 +10,5 @@ alwaysApply: true
 - Phase 1: planes + place + JSON. No RoomPlan/PDF/cloud unless asked. `docs/product/roadmap.md`.
 - Agent EN; product/UX RU OK; code EN. Conventions: `docs/ai/conventions.md`.
 - Change behavior/schema/stack/phase → update `docs/` + rules/`AGENTS.md` same change.
-- Small diffs. Ask before packages/top-level folders. No secrets/`Library`/`Builds`.
+- Auto-extend `.gitignore` / `.cursorignore` when adding caches, builds, secrets, generated Unity junk, or large binaries. Never commit secrets/`Library`/`Builds`.
+- Small diffs. Ask before packages/top-level folders.

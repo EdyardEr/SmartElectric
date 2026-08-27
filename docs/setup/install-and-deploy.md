@@ -111,7 +111,7 @@ Hub иногда хочет пустую папку. Если ругается �
 - Вариант A: создать проект во временной папке → перенести `Assets/`, `Packages/`, `ProjectSettings/` в git-корень (не переносить `Library/`).
 - Вариант B: создать Unity-проект, затем перенести наши `docs/`, `AGENTS.md`, `.cursor/` в него и сделать эту папку remote origin.
 
-**Важно:** в git уже есть `.gitignore` под Unity (`Library/`, `Temp/`, …) — не коммитьте `Library/`.
+**Важно:** в корневой `.gitignore` уже игнорятся Unity-кэш и бинарники (`Library/`, `Temp/`, `Logs/`, `UserSettings/`, `*.csproj`/`*.sln`, APK/AAB, Addressables temp, …). Не коммитьте `Library/`.
 
 ### 4.2 Первый коммит после создания (когда будете готовы)
 

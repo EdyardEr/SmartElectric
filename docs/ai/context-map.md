@@ -27,3 +27,5 @@ Nav: [docs index](../README.md) · [conventions](conventions.md)
 ## Sync
 
 Behavior / schema / stack / phase change → matching `docs/` **and** rules/`AGENTS.md` same change. New decision → `docs/decisions/00N-….md`.
+
+New caches, builds, secrets, generated Unity files, or large binaries → extend `.gitignore` (and `.cursorignore` if needed) in the same change.
