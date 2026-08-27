@@ -43,3 +43,11 @@ Order: ship live AR before LiDAR. LiDAR only upgrades scan quality.
 ## Phase gate
 
 Implement against **Now** above / `AGENTS.md`. Cross-phase only if the user explicitly asks.
+
+## Template exit (parallel track)
+
+AR Mobile demo is scaffolding. When to cut it: [docs/setup/from-template-to-product.md](../setup/from-template-to-product.md).
+
+- Ideal purge window: **after Phase 1 stable, before Phase 2 RoomPlan** (stage **T3**).
+- Do not implement product features inside `MobileARTemplateAssets` / `Samples`.
+

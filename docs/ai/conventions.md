@@ -23,7 +23,9 @@ Nav: [docs index](../README.md) · [context map](context-map.md)
 | Phase / scope | `roadmap.md`, `AGENTS.md`, `core.mdc`, `docs/README.md` (Now) |
 | Product / modes | `docs/product/*`, `core.mdc` if invariant shifts |
 | Stack / packages | `stack.md`, ADR, `unity-ar.mdc`, `setup/install-and-deploy.md` if install steps change |
+| Unity coding standards | `architecture/unity-coding.md`, `.cursor/rules/unity-csharp.mdc` |
 | Unity bootstrap / deploy | `setup/install-and-deploy.md`, `docs/README.md` (Code/Now), `stack.md` versions |
+| Template stage T0–T4 | `setup/from-template-to-product.md` status table, `docs/README.md` (Code), `roadmap.md` if timing shifts |
 | RoomModel | `room-model.md`, `room-model.mdc`, serializers |
 | Navigation / process | `docs/README.md`, `context-map.md`, this file |
 | New cache / build / secret / large binary / generated Unity junk | `.gitignore` (and `.cursorignore` if it would bloat the index) |

@@ -1,0 +1,31 @@
+---
+description: Unity C# coding best practices for SmartElectric
+globs: Assets/**/*.cs
+alwaysApply: false
+---
+
+# Unity C# practices
+
+Detail: `docs/architecture/unity-coding.md`. Product code → `Assets/_Project/**` only.
+
+## Structure
+
+- Namespaces: `SmartElectric.*` (`Domain`, `AR`, `Adapters`, `UI`). One type per file; PascalCase types/methods, camelCase locals.
+- Domain: **no** `MonoBehaviour`, **no** AR/UI APIs. Serializable POCOs / plain services. Optional asmdef later.
+- MonoBehaviours = thin: wire scene refs, forward to Domain/services.
+- `[SerializeField] private` for Inspector; avoid public fields. Require refs in `Awake`/`OnEnable` (fail fast if missing).
+
+## Lifecycle & perf (mobile AR)
+
+- Cache components in `Awake`; no `GetComponent` / `Find*` / `Camera.main` in `Update`.
+- No LINQ / boxing / `new` lists in `Update`/`LateUpdate` hot paths.
+- Prefer events / Input System callbacks over polling when possible.
+- Stop coroutines / unsubscribe in `OnDisable`/`OnDestroy`.
+
+## Unity hygiene
+
+- Commit `.meta` with every asset/script. Don’t hand-edit GUIDs.
+- Prefabs + scenes for wiring; runtime `AddComponent` only when justified.
+- Input System (not legacy `Input`). Ask before new packages.
+- Logs: temporary `Debug.Log` ok; don’t spam per-frame. No empty `catch`.
+- Match existing style in `_Project`; don’t “clean up” template Samples unless asked.

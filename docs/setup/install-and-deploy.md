@@ -123,7 +123,9 @@ Hub иногда хочет пустую папку. Если ругается �
 
 Не коммитить: `Library/`, `Logs/`, `Temp/`, `UserSettings/` (уже в `.gitignore`).
 
-### 4.3 Целевая структура `Assets/` (создать папки сразу)
+### 4.3 Целевая структура `Assets/` 
+
+Уже создано в репо:
 
 ```text
 Assets/
@@ -134,11 +136,11 @@ Assets/
     UI/
     Prefabs/          # Outlet, Panel
     Scenes/
-      Bootstrap.unity
-      ARPlacement.unity
-    Resources/        # or Addressables later
-  XR/                 # may be created by XR Plug-in Management
+    Resources/
+  …                 # AR Mobile template (Samples, MobileARTemplateAssets, XR, …)
 ```
+
+Пустые папки держатся через `.gitkeep`. После открытия в Editor Unity допишет `.meta` — их тоже коммитить.
 
 Имена можно уточнить, принцип: **Domain без AR API**.
 
@@ -313,4 +315,5 @@ Backend / Firebase / PDF — **не** ставить до Phase 4.
 
 ## 13. Следующий документ после выполнения setup
 
-Когда Unity-проект лежит в репо: обновить «Now» в [docs/README.md](../README.md) и при необходимости добавить `docs/setup/first-ar-scene.md` с точными именами компонентов вашей версии AF (они чуть плавают между 5.x/6.x).
+- План отрезания демо-шаблона: [from-template-to-product.md](from-template-to-product.md) (этапы T0–T4).
+- Когда Unity-проект лежит в репо: обновить «Now» в [docs/README.md](../README.md); при смене этапа шаблона — статус в from-template-to-product.

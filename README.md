@@ -9,7 +9,7 @@ Mobile AR: scan a room → place outlets/panels → auto wiring routes + cost es
 3. [Roadmap](docs/product/roadmap.md) — what we build now
 4. [AGENTS.md](AGENTS.md) — short brief for AI
 
-**Now:** Phase 1 (No-LiDAR live AR). Unity `Assets/` not created yet.
+**Now:** Phase 1 (No-LiDAR live AR). Unity in repo; app folders at `Assets/_Project/`.
 
 ## Modes (one RoomModel)
 
@@ -22,9 +22,9 @@ Mobile AR: scan a room → place outlets/panels → auto wiring routes + cost es
 
 | Area | Links |
 |------|--------|
-| Setup | **[install & deploy](docs/setup/install-and-deploy.md)** |
+| Setup | **[install & deploy](docs/setup/install-and-deploy.md)** · [template → product](docs/setup/from-template-to-product.md) |
 | Product | [vision](docs/product/vision.md) · [modes](docs/product/modes.md) · [roadmap](docs/product/roadmap.md) |
-| Architecture | [stack](docs/architecture/stack.md) · [RoomModel](docs/architecture/room-model.md) |
+| Architecture | [stack](docs/architecture/stack.md) · [RoomModel](docs/architecture/room-model.md) · [unity coding](docs/architecture/unity-coding.md) |
 | Decisions | [001 Unity](docs/decisions/001-unity-ar-foundation.md) |
 | AI / process | [context map](docs/ai/context-map.md) · [conventions](docs/ai/conventions.md) |
 

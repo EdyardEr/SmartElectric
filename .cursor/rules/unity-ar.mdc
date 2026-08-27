@@ -6,7 +6,8 @@ alwaysApply: false
 
 # Unity/AR
 
-- Map: `docs/README.md`. Setup: `docs/setup/install-and-deploy.md`. Stack: `docs/architecture/stack.md`.
-- Domain = pure C# (no MB/AR APIs). Scans = adapters → RoomModel.
-- Snap to RoomModel walls; No-LiDAR re-align = floor + one wall.
-- Ask before Asset Store/native plugins. Sync docs/rules on change; extend `.gitignore` for new generated/local junk.
+- Practices: `.cursor/rules/unity-csharp.mdc` · `docs/architecture/unity-coding.md`
+- Map: `docs/README.md`. Setup: `docs/setup/install-and-deploy.md`. Exit: `docs/setup/from-template-to-product.md`.
+- Product only in `Assets/_Project/**`. No product features in `MobileARTemplateAssets` / `Samples`.
+- Domain = pure C#. Adapters → RoomModel. Snap to RoomModel walls; No-LiDAR re-align = floor + one wall.
+- Ask before plugins. Sync docs/rules; extend `.gitignore` for new junk.

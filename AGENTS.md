@@ -8,7 +8,7 @@ AR electrical layout: scan → place outlets/panels → routes + estimate.
 
 **Phase 1:** No-LiDAR live AR + JSON save. No RoomPlan/PDF/cloud unless asked.
 
-**Orient:** `docs/README.md` → `docs/ai/context-map.md`. **Setup:** `docs/setup/install-and-deploy.md`.
+**Orient:** `docs/README.md` → `docs/ai/context-map.md`. **Setup:** `docs/setup/install-and-deploy.md`. **Unity code:** `docs/architecture/unity-coding.md`.
 
 **Lang:** Agent EN. Product/UX RU OK. Code EN.
 

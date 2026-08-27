@@ -8,11 +8,13 @@ Nav: [docs index](../README.md) · [conventions](conventions.md)
 |------|------|
 | Orient / tree | `docs/README.md` |
 | Install Unity / deploy phone | `docs/setup/install-and-deploy.md` |
+| Cut AR Mobile demo / own scenes | `docs/setup/from-template-to-product.md` |
 | Scope / phase | `AGENTS.md`, `docs/product/roadmap.md` |
 | Product / UX (RU OK) | `docs/product/vision.md`, `modes.md` |
 | Stack / packages | `docs/architecture/stack.md`, `docs/decisions/001-*.md` |
+| Unity C# practices | `docs/architecture/unity-coding.md`, `.cursor/rules/unity-csharp.mdc` |
 | Schema / save | `docs/architecture/room-model.md` |
-| Agent rules | `.cursor/rules/core.mdc`, `unity-ar.mdc`, `room-model.mdc` |
+| Agent rules | `.cursor/rules/core.mdc`, `unity-csharp.mdc`, `unity-ar.mdc`, `room-model.mdc` |
 | Ignore / secrets | `.gitignore`, `.cursorignore` |
 
 ## Language

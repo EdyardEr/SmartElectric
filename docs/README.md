@@ -7,7 +7,7 @@ Quick map of SmartElectric. Open this file first when you are lost.
 | | |
 |--|--|
 | **Phase** | **1** — No-LiDAR live AR (planes → place devices → save `RoomModel` JSON) |
-| **Code** | Unity project not created yet (`Assets/` missing) |
+| **Code** | Unity present. App: `Assets/_Project/`. Demo template still present — exit plan: [setup/from-template-to-product.md](setup/from-template-to-product.md) (**T1**) |
 | **Invariant** | All scan modes → one `RoomModel` → shared AR / routes / estimate |
 
 ## Where to go
@@ -15,12 +15,15 @@ Quick map of SmartElectric. Open this file first when you are lost.
 | I need… | Open |
 |---------|------|
 | **Install Unity / deploy to phone** | [setup/install-and-deploy.md](setup/install-and-deploy.md) |
+| **Template → product (when to cut demo)** | [setup/from-template-to-product.md](setup/from-template-to-product.md) |
 | What the product is | [product/vision.md](product/vision.md) |
 | LiDAR vs planes vs manual | [product/modes.md](product/modes.md) |
 | What we build next | [product/roadmap.md](product/roadmap.md) |
 | Tech stack | [architecture/stack.md](architecture/stack.md) |
+| Unity coding practices | [architecture/unity-coding.md](architecture/unity-coding.md) |
 | Data format / JSON | [architecture/room-model.md](architecture/room-model.md) |
 | Why Unity | [decisions/001-unity-ar-foundation.md](decisions/001-unity-ar-foundation.md) |
+| Why keep AR Mobile template for now | [decisions/002-ar-mobile-template-scaffolding.md](decisions/002-ar-mobile-template-scaffolding.md) |
 | What agents should open | [ai/context-map.md](ai/context-map.md) |
 | Lang + keep docs in sync | [ai/conventions.md](ai/conventions.md) |
 
@@ -32,16 +35,17 @@ SmartElectric/
 ├── AGENTS.md                 ← agent brief (EN, short)
 ├── .cursor/rules/            ← agent rules (EN, short)
 │   ├── core.mdc              always on
-│   ├── unity-ar.mdc          Assets/**/*.cs
+│   ├── unity-csharp.mdc      Assets/**/*.cs — coding practices
+│   ├── unity-ar.mdc          Assets/**/*.cs — AR / _Project
 │   └── room-model.mdc        Domain / RoomModel
 ├── docs/
 │   ├── README.md             ← you are here
-│   ├── setup/                install-and-deploy (how to install & run)
+│   ├── setup/                install · from-template-to-product
 │   ├── product/              vision · modes · roadmap
-│   ├── architecture/         stack · room-model
+│   ├── architecture/         stack · room-model · unity-coding
 │   ├── decisions/            ADRs
 │   └── ai/                   context-map · conventions
-└── (later) Assets/           Unity
+└── Assets/                   Unity (AR Mobile template + `_Project/`)
 ```
 
 ## Layers (who reads what)
