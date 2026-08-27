@@ -1,0 +1,11 @@
+---
+description: RoomModel domain rules
+globs: "**/Domain/**/*.cs,**/RoomModel*,**/room-model*"
+alwaysApply: false
+---
+
+# RoomModel
+
+- Map: `docs/README.md`. Schema: `docs/architecture/room-model.md`.
+- Mode-agnostic. Devices: `wallId` + local pos. JSON + `schemaVersion`.
+- Schema change → doc + sample + serializers same change.

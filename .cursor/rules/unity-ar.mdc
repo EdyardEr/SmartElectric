@@ -1,0 +1,12 @@
+---
+description: Unity AR Foundation conventions
+globs: Assets/**/*.cs
+alwaysApply: false
+---
+
+# Unity/AR
+
+- Map: `docs/README.md`. Stack: `docs/architecture/stack.md`.
+- Domain = pure C# (no MB/AR APIs). Scans = adapters → RoomModel.
+- Snap to RoomModel walls; No-LiDAR re-align = floor + one wall.
+- Ask before Asset Store/native plugins. Sync docs/rules on change.

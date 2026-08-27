@@ -1,0 +1,37 @@
+﻿# Unity generated / huge — do not index
+Library/
+Temp/
+Obj/
+Logs/
+Build/
+Builds/
+UserSettings/
+MemoryCaptures/
+Recordings/
+CopyPaste/
+
+# Binaries and packages
+*.apk
+*.aab
+*.ipa
+*.app
+*.unitypackage
+*.keystore
+*.jks
+
+# Heavy 3D / scan dumps (re-enable specific paths if agents must edit them)
+*.usd
+*.usdz
+**/Exports/
+
+# Secrets
+.env
+.env.*
+**/Secrets/
+**/google-services.json
+**/GoogleService-Info.plist
+
+# Lock / cache noise
+.gradle/
+.vs/
+node_modules/
