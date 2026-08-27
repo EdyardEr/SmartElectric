@@ -14,6 +14,7 @@ Quick map of SmartElectric. Open this file first when you are lost.
 
 | I need… | Open |
 |---------|------|
+| **Install Unity / deploy to phone** | [setup/install-and-deploy.md](setup/install-and-deploy.md) |
 | What the product is | [product/vision.md](product/vision.md) |
 | LiDAR vs planes vs manual | [product/modes.md](product/modes.md) |
 | What we build next | [product/roadmap.md](product/roadmap.md) |
@@ -35,6 +36,7 @@ SmartElectric/
 │   └── room-model.mdc        Domain / RoomModel
 ├── docs/
 │   ├── README.md             ← you are here
+│   ├── setup/                install-and-deploy (how to install & run)
 │   ├── product/              vision · modes · roadmap
 │   ├── architecture/         stack · room-model
 │   ├── decisions/            ADRs
@@ -46,6 +48,7 @@ SmartElectric/
 
 | Path | Audience | Lang |
 |------|----------|------|
+| `docs/setup/` | humans (+ agents doing bootstrap) | RU OK |
 | `docs/product/` | humans (+ agents when needed) | RU OK |
 | `docs/architecture/`, `decisions/` | humans + agents | EN |
 | `AGENTS.md`, `.cursor/rules/` | agents | EN, minimal |

@@ -5,7 +5,7 @@ alwaysApply: true
 
 # Core
 
-- Orient: `docs/README.md` → task map `docs/ai/context-map.md`.
+- Orient: `docs/README.md` → `docs/ai/context-map.md`. Setup: `docs/setup/install-and-deploy.md`.
 - One `RoomModel`; scan adapters only. No mode branching in routing/estimate.
 - Phase 1: planes + place + JSON. No RoomPlan/PDF/cloud unless asked. `docs/product/roadmap.md`.
 - Agent EN; product/UX RU OK; code EN. Conventions: `docs/ai/conventions.md`.

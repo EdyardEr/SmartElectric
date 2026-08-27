@@ -5,8 +5,9 @@ Mobile AR: scan a room → place outlets/panels → auto wiring routes + cost es
 ## Start here
 
 1. **[docs/README.md](docs/README.md)** — project map (phase, tree, where to click)
-2. [Roadmap](docs/product/roadmap.md) — what we build now
-3. [AGENTS.md](AGENTS.md) — short brief for AI
+2. **[Install & deploy](docs/setup/install-and-deploy.md)** — Unity, packages, phone builds
+3. [Roadmap](docs/product/roadmap.md) — what we build now
+4. [AGENTS.md](AGENTS.md) — short brief for AI
 
 **Now:** Phase 1 (No-LiDAR live AR). Unity `Assets/` not created yet.
 
@@ -21,6 +22,7 @@ Mobile AR: scan a room → place outlets/panels → auto wiring routes + cost es
 
 | Area | Links |
 |------|--------|
+| Setup | **[install & deploy](docs/setup/install-and-deploy.md)** |
 | Product | [vision](docs/product/vision.md) · [modes](docs/product/modes.md) · [roadmap](docs/product/roadmap.md) |
 | Architecture | [stack](docs/architecture/stack.md) · [RoomModel](docs/architecture/room-model.md) |
 | Decisions | [001 Unity](docs/decisions/001-unity-ar-foundation.md) |
@@ -29,9 +31,3 @@ Mobile AR: scan a room → place outlets/panels → auto wiring routes + cost es
 ## Repo
 
 https://github.com/EdyardEr/SmartElectric.git
-
-## Local setup (later)
-
-1. Unity 6 + AR Foundation when `Assets/` exists
-2. Mac + Xcode for iOS / RoomPlan
-3. Devices: LiDAR iPhone, non-LiDAR iPhone, ARCore Android

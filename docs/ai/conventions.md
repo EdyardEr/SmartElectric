@@ -22,7 +22,8 @@ Nav: [docs index](../README.md) · [context map](context-map.md)
 |--------|-------------|
 | Phase / scope | `roadmap.md`, `AGENTS.md`, `core.mdc`, `docs/README.md` (Now) |
 | Product / modes | `docs/product/*`, `core.mdc` if invariant shifts |
-| Stack / packages | `stack.md`, ADR, `unity-ar.mdc` |
+| Stack / packages | `stack.md`, ADR, `unity-ar.mdc`, `setup/install-and-deploy.md` if install steps change |
+| Unity bootstrap / deploy | `setup/install-and-deploy.md`, `docs/README.md` (Code/Now), `stack.md` versions |
 | RoomModel | `room-model.md`, `room-model.mdc`, serializers |
 | Navigation / process | `docs/README.md`, `context-map.md`, this file |
 

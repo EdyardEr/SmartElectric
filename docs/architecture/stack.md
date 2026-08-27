@@ -1,6 +1,6 @@
 # Tech stack
 
-Nav: [docs index](../README.md) · [RoomModel](room-model.md) · [ADR 001](../decisions/001-unity-ar-foundation.md)
+Nav: [docs index](../README.md) · [install](../setup/install-and-deploy.md) · [RoomModel](room-model.md) · [ADR 001](../decisions/001-unity-ar-foundation.md)
 
 ## Verdict
 
@@ -45,3 +45,8 @@ Adapters write RoomModel; routing/estimate never call AR APIs.
 - 1× iPhone/iPad with LiDAR
 - 1× non-LiDAR iPhone
 - 1–2 mid-range Android with ARCore
+
+## Install & deploy
+
+Step-by-step (Hub, packages, Android/iOS builds): [docs/setup/install-and-deploy.md](../setup/install-and-deploy.md).  
+After creating the Unity project, record package versions here.

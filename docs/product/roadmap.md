@@ -1,6 +1,6 @@
 # Roadmap
 
-Nav: [docs index](../README.md) · [vision](vision.md) · [modes](modes.md)
+Nav: [docs index](../README.md) · [install](../setup/install-and-deploy.md) · [vision](vision.md) · [modes](modes.md)
 
 ## Now
 
