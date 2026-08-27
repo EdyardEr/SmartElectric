@@ -121,9 +121,16 @@ Route
 }
 ```
 
+## Serialization notes (Unity)
+
+- Runtime type: `SmartElectric.Domain.RoomModel` in `Assets/_Project/Domain/`.
+- Persist via `RoomModelJsonSerializer` + `RoomModelStore` (`persistentDataPath/projects/*.json`).
+- JsonUtility DTOs: enums as strings; `localPosition` as `{x,y}`; pose `position`/`rotation` as float arrays; polygons as `{x,y,z}[]`.
+
 ## Rules
 
 - No LiDAR-only fields in the core schema; extras go in `meta` or adapter-side cache.
 - Confidence: LiDAR default High; Planes Medium; Manual Medium/Low depending on edits.
 - Routing consumes walls + devices; must ignore `scanMode` except for UI badges.
 - When schema changes: update this doc, sample JSON, and serializers together.
+

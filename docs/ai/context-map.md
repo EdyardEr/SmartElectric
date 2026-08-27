@@ -8,6 +8,7 @@ Nav: [docs index](../README.md) · [conventions](conventions.md)
 |------|------|
 | Orient / tree | `docs/README.md` |
 | Install Unity / deploy phone | `docs/setup/install-and-deploy.md` |
+| Phase 1 Editor wire-up | `docs/setup/phase1-wire-up.md` |
 | Cut AR Mobile demo / own scenes | `docs/setup/from-template-to-product.md` |
 | Scope / phase | `AGENTS.md`, `docs/product/roadmap.md` |
 | Product / UX (RU OK) | `docs/product/vision.md`, `modes.md` |

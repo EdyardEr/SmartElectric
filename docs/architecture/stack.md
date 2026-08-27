@@ -33,12 +33,13 @@ Adapters write RoomModel; routing/estimate never call AR APIs.
 - **Flutter / RN:** weaker for 3D snap + route visualization as the core feature.
 - **Polycam / Matterport / full BIM:** overkill for single-room electrical MVP.
 
-## Packages (expected)
+## Packages (installed)
 
-- AR Foundation, XR Plug-in Management
-- Apple ARKit XR Plugin, Google ARCore XR Plugin
-- Input System, Addressables (device prefabs)
-- RoomPlan integration only on the LiDAR iOS branch
+From `Packages/manifest.json` (Unity 6.5 / URP 17.5):
+
+- AR Foundation **6.5.0**, ARCore **6.5.0**, ARKit **6.5.0**
+- XR Management **4.6.1**, XR Interaction Toolkit **3.5.1**
+- Input System **1.20.0**, URP **17.5.0**
 
 ## Devices for QA
 

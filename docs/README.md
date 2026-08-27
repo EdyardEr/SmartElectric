@@ -7,7 +7,7 @@ Quick map of SmartElectric. Open this file first when you are lost.
 | | |
 |--|--|
 | **Phase** | **1** — No-LiDAR live AR (planes → place devices → save `RoomModel` JSON) |
-| **Code** | Unity present. App: `Assets/_Project/`. Demo template still present — exit plan: [setup/from-template-to-product.md](setup/from-template-to-product.md) (**T1**) |
+| **Code** | Phase 1 code in `Assets/_Project/` (RoomModel + place/save). Wire-up: [setup/phase1-wire-up.md](setup/phase1-wire-up.md). Template exit: **T1** |
 | **Invariant** | All scan modes → one `RoomModel` → shared AR / routes / estimate |
 
 ## Where to go
@@ -15,6 +15,7 @@ Quick map of SmartElectric. Open this file first when you are lost.
 | I need… | Open |
 |---------|------|
 | **Install Unity / deploy to phone** | [setup/install-and-deploy.md](setup/install-and-deploy.md) |
+| **Phase 1 wire-up (menu in Editor)** | [setup/phase1-wire-up.md](setup/phase1-wire-up.md) |
 | **Template → product (when to cut demo)** | [setup/from-template-to-product.md](setup/from-template-to-product.md) |
 | What the product is | [product/vision.md](product/vision.md) |
 | LiDAR vs planes vs manual | [product/modes.md](product/modes.md) |
@@ -40,7 +41,7 @@ SmartElectric/
 │   └── room-model.mdc        Domain / RoomModel
 ├── docs/
 │   ├── README.md             ← you are here
-│   ├── setup/                install · from-template-to-product
+│   ├── setup/                install · phase1-wire-up · from-template-to-product
 │   ├── product/              vision · modes · roadmap
 │   ├── architecture/         stack · room-model · unity-coding
 │   ├── decisions/            ADRs

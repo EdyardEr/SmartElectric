@@ -10,8 +10,11 @@ Order: ship live AR before LiDAR. LiDAR only upgrades scan quality.
 
 ## Phase 1 — Live AR + No-LiDAR (current)
 
-- Vertical / horizontal planes
-- Place panel + outlets
+- [x] Domain `RoomModel` + JSON save/load (`Assets/_Project/Domain`)
+- [x] Tap-to-place Outlet/Panel on AR planes + debug HUD
+- [ ] Wire into SampleScene via menu (see [phase1-wire-up](../setup/phase1-wire-up.md)) — **do in Editor**
+- [ ] Own product scene (template exit **T2**)
+- Vertical / horizontal planes (template)
 - Save project as RoomModel JSON
 - Covers most devices early; proves the core feature
 

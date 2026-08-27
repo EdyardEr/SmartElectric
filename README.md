@@ -9,7 +9,7 @@ Mobile AR: scan a room → place outlets/panels → auto wiring routes + cost es
 3. [Roadmap](docs/product/roadmap.md) — what we build now
 4. [AGENTS.md](AGENTS.md) — short brief for AI
 
-**Now:** Phase 1 (No-LiDAR live AR). Unity in repo; app folders at `Assets/_Project/`.
+**Now:** Phase 1 — RoomModel + place/save in `_Project`. Wire scene: [phase1-wire-up](docs/setup/phase1-wire-up.md).
 
 ## Modes (one RoomModel)
 
