@@ -352,7 +352,7 @@ namespace SmartElectric.Domain
         public DeviceData ToModel() => new DeviceData
         {
             id = id,
-            type = Enum.TryParse(type, true, out DeviceType t) ? t : DeviceType.Other,
+            type = Enum.TryParse(type, true, out ElectricalDeviceType t) ? t : ElectricalDeviceType.Other,
             wallId = wallId,
             localPosition = localPosition != null ? localPosition.ToModel() : new Vec2Data(0f, 0f),
             rotation = rotation,

@@ -24,9 +24,9 @@ namespace SmartElectric.AR
         void Awake()
         {
             if (raycastManager == null)
-                raycastManager = FindFirstObjectByType<ARRaycastManager>();
+                raycastManager = FindAnyObjectByType<ARRaycastManager>();
             if (session == null)
-                session = FindFirstObjectByType<ProjectSession>();
+                session = FindAnyObjectByType<ProjectSession>();
 
             if (raycastManager == null)
             {
@@ -86,7 +86,7 @@ namespace SmartElectric.AR
             }
 
             var pose = chosen.pose;
-            var prefab = session.ActiveDeviceType == DeviceType.Panel ? panelPrefab : outletPrefab;
+            var prefab = session.ActiveDeviceType == ElectricalDeviceType.Panel ? panelPrefab : outletPrefab;
             var instance = SpawnVisual(prefab, pose, session.ActiveDeviceType);
 
             var wall = session.Room.EnsureDefaultWall();
@@ -97,7 +97,7 @@ namespace SmartElectric.AR
             session.NotifyChanged();
         }
 
-        static GameObject SpawnVisual(GameObject prefab, Pose pose, DeviceType type)
+        static GameObject SpawnVisual(GameObject prefab, Pose pose, ElectricalDeviceType type)
         {
             if (prefab != null)
             {
@@ -105,16 +105,16 @@ namespace SmartElectric.AR
             }
 
             var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            go.name = type == DeviceType.Panel ? "Panel" : "Outlet";
+            go.name = type == ElectricalDeviceType.Panel ? "Panel" : "Outlet";
             go.transform.SetPositionAndRotation(pose.position, pose.rotation);
-            var scale = type == DeviceType.Panel
+            var scale = type == ElectricalDeviceType.Panel
                 ? new Vector3(0.35f, 0.5f, 0.08f)
                 : new Vector3(0.12f, 0.08f, 0.04f);
             go.transform.localScale = scale;
             var renderer = go.GetComponent<Renderer>();
             if (renderer != null)
             {
-                renderer.material.color = type == DeviceType.Panel
+                renderer.material.color = type == ElectricalDeviceType.Panel
                     ? new Color(0.2f, 0.45f, 0.85f)
                     : new Color(0.95f, 0.85f, 0.2f);
             }

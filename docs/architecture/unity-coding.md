@@ -58,4 +58,5 @@ Namespaces: `SmartElectric.Domain`, `SmartElectric.AR`, `SmartElectric.Adapters`
 | New product scripts under `_Project` | Patch product logic into template scripts |
 | Explicit null checks for serialized deps | Empty catch / swallow AR failures |
 | Input System | Legacy `Input` for new code |
+| `ElectricalDeviceType` in Domain (not `DeviceType`) | Collides with `UnityEngine.DeviceType` |
 | Small PRs matching existing style | Drive-by renames across Samples |

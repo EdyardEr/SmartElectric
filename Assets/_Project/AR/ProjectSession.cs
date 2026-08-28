@@ -13,7 +13,7 @@ namespace SmartElectric.AR
         readonly Dictionary<string, GameObject> spawnedByDeviceId = new Dictionary<string, GameObject>();
 
         public RoomModel Room { get; private set; }
-        public DeviceType ActiveDeviceType { get; private set; } = DeviceType.Outlet;
+        public ElectricalDeviceType ActiveDeviceType { get; private set; } = ElectricalDeviceType.Outlet;
         public string LastStatus { get; private set; } = "Ready";
 
         void Awake()
@@ -22,7 +22,7 @@ namespace SmartElectric.AR
             LastStatus = $"New room '{Room.name}' ({Room.id})";
         }
 
-        public void SetDeviceType(DeviceType type)
+        public void SetDeviceType(ElectricalDeviceType type)
         {
             ActiveDeviceType = type;
             LastStatus = $"Place mode: {type}";
@@ -105,7 +105,7 @@ namespace SmartElectric.AR
                 var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 go.name = $"{d.type}_{d.id}";
                 go.transform.position = pos;
-                go.transform.localScale = d.type == DeviceType.Panel
+                go.transform.localScale = d.type == ElectricalDeviceType.Panel
                     ? new Vector3(0.35f, 0.5f, 0.08f)
                     : new Vector3(0.12f, 0.08f, 0.04f);
                 spawnedByDeviceId[d.id] = go;

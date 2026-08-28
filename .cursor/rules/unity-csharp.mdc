@@ -17,7 +17,7 @@ Detail: `docs/architecture/unity-coding.md`. Product code → `Assets/_Project/*
 
 ## Lifecycle & perf (mobile AR)
 
-- Cache components in `Awake`; no `GetComponent` / `Find*` / `Camera.main` in `Update`.
+- Cache components in `Awake`; no `GetComponent` / `Find*` / `Camera.main` in `Update`. Use `FindAnyObjectByType` (not deprecated `FindFirstObjectByType`).
 - No LINQ / boxing / `new` lists in `Update`/`LateUpdate` hot paths.
 - Prefer events / Input System callbacks over polling when possible.
 - Stop coroutines / unsubscribe in `OnDisable`/`OnDestroy`.

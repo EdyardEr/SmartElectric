@@ -19,7 +19,7 @@ namespace SmartElectric.Domain
         Meters = 0
     }
 
-    public enum DeviceType
+    public enum ElectricalDeviceType
     {
         Outlet = 0,
         Panel = 1,

@@ -42,7 +42,7 @@ namespace SmartElectric.Domain
     public sealed class DeviceData
     {
         public string id;
-        public DeviceType type;
+        public ElectricalDeviceType type;
         public string wallId;
         public Vec2Data localPosition;
         public float rotation;
@@ -131,7 +131,7 @@ namespace SmartElectric.Domain
             meta.appVersion = AppVersion;
         }
 
-        public DeviceData AddDevice(DeviceType type, string wallId, Vec2Data localPosition)
+        public DeviceData AddDevice(ElectricalDeviceType type, string wallId, Vec2Data localPosition)
         {
             if (devices == null)
                 devices = new List<DeviceData>();

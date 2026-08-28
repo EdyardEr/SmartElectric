@@ -182,7 +182,7 @@ Assets/
 
 **Android**
 
-- Minimum API Level: **24+** (лучше 26+; свериться с текущей докой AR Foundation / ARCore).
+- Minimum API Level: **26** (ARCore; covers API 33+ devices like HONOR). Do not set above your test device API.
 - Scripting Backend: **IL2CPP**.
 - Target Architectures: **ARM64**.
 - Graphics: Vulkan/OpenGLES3 по требованиям ARCore для вашей версии.
@@ -234,6 +234,7 @@ Assets/
 | Симптом | Что проверить |
 |---------|----------------|
 | Чёрный экран | ARCore установлен; устройство в списке; лог `adb logcat` |
+| API level / device not supported | Minimum API в Player Settings ≤ API телефона (в репо: **26**) |
 | Нет плоскостей | Свет / текстура пола; vertical+horizontal в Plane Manager |
 | Build fail NDK/SDK | External Tools в Unity: пути JDK/SDK/NDK из Hub |
 | IL2CPP error | ARM64 only; правильный NDK модуля Hub |

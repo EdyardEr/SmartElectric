@@ -43,7 +43,7 @@ namespace SmartElectric.EditorTools
             if (hud == null)
                 hud = Undo.AddComponent<ProjectDebugHud>(root);
 
-            var raycast = Object.FindFirstObjectByType<ARRaycastManager>();
+            var raycast = Object.FindAnyObjectByType<ARRaycastManager>();
             if (raycast == null)
                 Debug.LogWarning("[SmartElectric] ARRaycastManager not found — add XR Origin / AR components from the template scene.");
 

@@ -11,7 +11,7 @@ namespace SmartElectric.UI
         void Awake()
         {
             if (session == null)
-                session = FindFirstObjectByType<SmartElectric.AR.ProjectSession>();
+                session = FindAnyObjectByType<SmartElectric.AR.ProjectSession>();
         }
 
         void OnGUI()
@@ -27,11 +27,11 @@ namespace SmartElectric.UI
             GUI.Box(new Rect(x - 4f, y - 4f, w + 8f, h * 6f + 48f), "SmartElectric");
 
             if (GUI.Button(new Rect(x, y, w, h), "Outlet"))
-                session.SetDeviceType(DeviceType.Outlet);
+                session.SetDeviceType(ElectricalDeviceType.Outlet);
             y += h + 4f;
 
             if (GUI.Button(new Rect(x, y, w, h), "Panel"))
-                session.SetDeviceType(DeviceType.Panel);
+                session.SetDeviceType(ElectricalDeviceType.Panel);
             y += h + 4f;
 
             if (GUI.Button(new Rect(x, y, w, h), "Save"))
