@@ -39,7 +39,8 @@ namespace SmartElectric.AR
 
         public void NotifyChanged()
         {
-            LastStatus = $"Devices: {Room.devices.Count} | mode: {ActiveDeviceType}";
+            var wallCount = Room?.walls != null ? Room.walls.Count : 0;
+            LastStatus = $"Walls: {wallCount} | devices: {Room.devices.Count} | mode: {ActiveDeviceType}";
         }
 
         public void Save()

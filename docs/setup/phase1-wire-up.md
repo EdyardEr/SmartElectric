@@ -16,9 +16,10 @@ It includes XR from the template, disabled demo UI, and `SmartElectric_Runtime`.
 
 ### On device
 
-1. Wait for planes.
-2. HUD (top-left): **Outlet** / **Panel** → tap wall/floor.
-3. **Save** / **Load** — JSON in `persistentDataPath/projects/current_room.json` (path in Console on Save).
+1. Wait for planes (status shows `Walls: N`).
+2. HUD (top-left): **Outlet** / **Panel** → tap wall (not on HUD).
+3. Devices parent to AR anchors when possible.
+4. **Save** / **Load** — JSON in `persistentDataPath/projects/current_room.json`.
 
 ## Recreate scene (optional)
 

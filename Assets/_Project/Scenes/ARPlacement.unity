@@ -8345,6 +8345,7 @@ GameObject:
   - component: {fileID: 880001004}
   - component: {fileID: 880001005}
   - component: {fileID: 880001006}
+  - component: {fileID: 880001007}
   m_Layer: 0
   m_Name: SmartElectric_Runtime
   m_TagString: Untagged
@@ -8396,6 +8397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastManager: {fileID: 0}
+  anchorManager: {fileID: 0}
   session: {fileID: 880001003}
   outletPrefab: {fileID: 0}
   panelPrefab: {fileID: 0}
@@ -8427,3 +8429,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   disableUiRoot: 1
   disableObjectSpawner: 1
+--- !u!114 &880001007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880001001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e4a1c23f5d64e90a8b2c1d3e4f5678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planeManager: {fileID: 0}
+  session: {fileID: 880001003}
+  syncVerticalOnly: 1

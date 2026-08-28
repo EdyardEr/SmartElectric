@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using SmartElectric.Adapters;
 using SmartElectric.Domain;
+using SmartElectric.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.ARFoundation;
@@ -8,13 +10,14 @@ using UnityEngine.XR.ARSubsystems;
 namespace SmartElectric.AR
 {
     /// <summary>
-    /// Phase 1: tap/click AR plane → spawn device and record world pose in RoomModel.
+    /// Phase 1: tap AR plane → anchor + device, linked to RoomModel wall/device.
     /// </summary>
     public sealed class ArDevicePlacer : MonoBehaviour
     {
-        const string PlaneWallId = "ar_plane";
+        const string FallbackWallId = "ar_plane";
 
         [SerializeField] ARRaycastManager raycastManager;
+        [SerializeField] ARAnchorManager anchorManager;
         [SerializeField] ProjectSession session;
         [SerializeField] GameObject outletPrefab;
         [SerializeField] GameObject panelPrefab;
@@ -26,6 +29,8 @@ namespace SmartElectric.AR
         {
             if (raycastManager == null)
                 raycastManager = FindAnyObjectByType<ARRaycastManager>();
+            if (anchorManager == null)
+                anchorManager = FindAnyObjectByType<ARAnchorManager>();
             if (session == null)
                 session = FindAnyObjectByType<ProjectSession>();
 
@@ -39,6 +44,8 @@ namespace SmartElectric.AR
         void Update()
         {
             if (!TryGetPressScreenPosition(out var screenPos))
+                return;
+            if (ProjectDebugHud.BlocksPlacement(screenPos))
                 return;
             TryPlace(screenPos);
         }
@@ -86,23 +93,43 @@ namespace SmartElectric.AR
                 }
             }
 
+            var hitPlane = chosen.trackable as ARPlane;
             var pose = chosen.pose;
             var type = session.ActiveDeviceType;
             var prefab = type == ElectricalDeviceType.Panel ? panelPrefab : outletPrefab;
-            var instance = DeviceVisualFactory.Spawn(prefab, pose, type);
 
-            var p = pose.position;
-            var local = new Vec2Data(p.x, p.y);
-            var world = new Vec3Data(p.x, p.y, p.z);
+            Transform parent = null;
+            if (anchorManager != null && hitPlane != null)
+            {
+                var anchor = anchorManager.AttachAnchor(hitPlane, pose);
+                if (anchor != null)
+                    parent = anchor.transform;
+            }
+
+            var instance = DeviceVisualFactory.Spawn(prefab, pose, type, parent);
+
+            var wallId = hitPlane != null ? PlaneWallSync.WallIdFromPlane(hitPlane) : FallbackWallId;
+            var localOnWall = hitPlane != null
+                ? PlaneLocalPosition(hitPlane.transform, pose.position)
+                : new Vec2Data(pose.position.x, pose.position.y);
+
+            var world = new Vec3Data(pose.position.x, pose.position.y, pose.position.z);
             var device = session.Room.AddDevice(
                 type,
-                PlaneWallId,
-                local,
+                wallId,
+                localOnWall,
                 hasWorldPose: true,
                 worldPosition: world,
                 worldEulerY: pose.rotation.eulerAngles.y);
+
             session.RegisterSpawned(device.id, instance);
             session.NotifyChanged();
+        }
+
+        static Vec2Data PlaneLocalPosition(Transform planeTransform, Vector3 worldPosition)
+        {
+            var local = planeTransform.InverseTransformPoint(worldPosition);
+            return new Vec2Data(local.x, local.y);
         }
     }
 }

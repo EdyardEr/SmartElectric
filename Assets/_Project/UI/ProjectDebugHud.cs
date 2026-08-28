@@ -6,12 +6,20 @@ namespace SmartElectric.UI
     /// <summary>Temporary Phase 1 debug HUD (OnGUI). Replace with product UI later.</summary>
     public sealed class ProjectDebugHud : MonoBehaviour
     {
+        static readonly Rect PanelRect = new Rect(8f, 8f, 168f, 296f);
+
         [SerializeField] SmartElectric.AR.ProjectSession session;
 
         void Awake()
         {
             if (session == null)
                 session = FindAnyObjectByType<SmartElectric.AR.ProjectSession>();
+        }
+
+        public static bool BlocksPlacement(Vector2 screenPositionBottomLeft)
+        {
+            var guiPoint = new Vector2(screenPositionBottomLeft.x, Screen.height - screenPositionBottomLeft.y);
+            return PanelRect.Contains(guiPoint);
         }
 
         void OnGUI()
@@ -46,7 +54,7 @@ namespace SmartElectric.UI
                 session.NewRoom();
             y += h + 8f;
 
-            GUI.Label(new Rect(x, y, 400f, 40f), session.LastStatus);
+            GUI.Label(new Rect(x, y, 400f, 60f), session.LastStatus);
         }
     }
 }

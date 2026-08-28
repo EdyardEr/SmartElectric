@@ -13,7 +13,7 @@ Mobile AR app: readable structure, testable Domain, no per-frame garbage, clear 
 | Path | Responsibility |
 |------|----------------|
 | `Assets/_Project/Domain` | RoomModel, routing, estimate — pure C# |
-| `Assets/_Project/Adapters` | Scan → RoomModel |
+| `Assets/_Project/Adapters` | Scan → RoomModel (`PlaneWallSync` for AR planes) |
 | `Assets/_Project/AR` | AR Foundation session, placement, re-align |
 | `Assets/_Project/UI` | Menus, HUD |
 | `Assets/_Project/Prefabs`, `Scenes` | Product prefabs/scenes |

@@ -15,6 +15,8 @@ Order: ship live AR before LiDAR. LiDAR only upgrades scan quality.
 - [x] World pose in JSON (`hasWorldPose`) for Save/Load on device
 - [x] Editor menu **Create ARPlacement Scene (T2)** + Build Settings helper
 - [x] `ARPlacement.unity` committed (demo UI off, SmartElectric_Runtime wired)
+- [x] Plane → `RoomModel` walls (`PlaneWallSync` adapter) + AR anchors on place
+- [x] HUD no longer triggers placement on tap
 - [ ] Verify on phone: planes + place + save/load ([phase1-wire-up](../setup/phase1-wire-up.md))
 - Vertical / horizontal planes (template)
 - Save project as RoomModel JSON

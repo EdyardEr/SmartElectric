@@ -136,6 +136,42 @@ namespace SmartElectric.Domain
             meta.appVersion = AppVersion;
         }
 
+        public WallData UpsertWall(WallData wall)
+        {
+            if (wall == null || string.IsNullOrEmpty(wall.id))
+                return wall;
+
+            if (walls == null)
+                walls = new List<WallData>();
+
+            for (var i = 0; i < walls.Count; i++)
+            {
+                if (walls[i].id != wall.id)
+                    continue;
+                walls[i] = wall;
+                TouchUpdated();
+                return walls[i];
+            }
+
+            walls.Add(wall);
+            TouchUpdated();
+            return wall;
+        }
+
+        public WallData FindWall(string wallId)
+        {
+            if (walls == null || string.IsNullOrEmpty(wallId))
+                return null;
+
+            for (var i = 0; i < walls.Count; i++)
+            {
+                if (walls[i].id == wallId)
+                    return walls[i];
+            }
+
+            return null;
+        }
+
         public DeviceData AddDevice(
             ElectricalDeviceType type,
             string wallId,

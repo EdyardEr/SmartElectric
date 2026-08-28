@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 using System.Collections.Generic;
 using System.IO;
+using SmartElectric.Adapters;
 using SmartElectric.AR;
 using SmartElectric.UI;
 using UnityEditor;
@@ -81,15 +82,24 @@ namespace SmartElectric.EditorTools
             var placer = root.GetComponent<ArDevicePlacer>() ?? Undo.AddComponent<ArDevicePlacer>(root);
             var hud = root.GetComponent<ProjectDebugHud>() ?? Undo.AddComponent<ProjectDebugHud>(root);
             var disabler = root.GetComponent<TemplateUiDisabler>() ?? Undo.AddComponent<TemplateUiDisabler>(root);
+            var planeSync = root.GetComponent<PlaneWallSync>() ?? Undo.AddComponent<PlaneWallSync>(root);
 
             var raycast = Object.FindAnyObjectByType<ARRaycastManager>();
+            var anchor = Object.FindAnyObjectByType<ARAnchorManager>();
+            var planeManager = Object.FindAnyObjectByType<ARPlaneManager>();
             if (raycast == null)
                 Debug.LogWarning("[SmartElectric] ARRaycastManager not found — ensure XR Origin exists in scene.");
 
             var placerSo = new SerializedObject(placer);
             placerSo.FindProperty("raycastManager").objectReferenceValue = raycast;
+            placerSo.FindProperty("anchorManager").objectReferenceValue = anchor;
             placerSo.FindProperty("session").objectReferenceValue = session;
             placerSo.ApplyModifiedPropertiesWithoutUndo();
+
+            var planeSo = new SerializedObject(planeSync);
+            planeSo.FindProperty("planeManager").objectReferenceValue = planeManager;
+            planeSo.FindProperty("session").objectReferenceValue = session;
+            planeSo.ApplyModifiedPropertiesWithoutUndo();
 
             var hudSo = new SerializedObject(hud);
             hudSo.FindProperty("session").objectReferenceValue = session;
