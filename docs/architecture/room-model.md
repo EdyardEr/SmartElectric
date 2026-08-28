@@ -58,6 +58,9 @@ Device
   localPosition: { x, y }  # on wall; y ≈ height from floor
   rotation?: number
   catalogId?: string       # links to price catalog later
+  hasWorldPose?: boolean   # Phase 1 planes: world AR placement
+  worldPosition?: Vec3     # when hasWorldPose
+  worldEulerY?: number
 ```
 
 ### Route

@@ -7,7 +7,7 @@ Quick map of SmartElectric. Open this file first when you are lost.
 | | |
 |--|--|
 | **Phase** | **1** — No-LiDAR live AR (planes → place devices → save `RoomModel` JSON) |
-| **Code** | Phase 1 code in `Assets/_Project/` (RoomModel + place/save). Wire-up: [setup/phase1-wire-up.md](setup/phase1-wire-up.md). Template exit: **T1** |
+| **Code** | `Assets/_Project/Scenes/ARPlacement.unity` — open in Unity → Build And Run ([phase1-wire-up](setup/phase1-wire-up.md)). Template **T2** (verify on phone) |
 | **Invariant** | All scan modes → one `RoomModel` → shared AR / routes / estimate |
 
 ## Where to go

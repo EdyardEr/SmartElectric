@@ -197,5 +197,5 @@ Phase 4 routes / estimate / PDF
 
 | Field | Value |
 |-------|--------|
-| **Template stage** | T1 Parallel — Domain/AR/UI scripts exist; still on SampleScene until T2 |
-| **Next gate** | T2 — own scene as Build Settings index 0 |
+| **Template stage** | **T2** — `ARPlacement.unity` in repo; verify on device |
+| **Next gate** | Phone smoke: planes + place + save/load |

@@ -47,6 +47,11 @@ namespace SmartElectric.Domain
         public Vec2Data localPosition;
         public float rotation;
         public string catalogId;
+
+        /// <summary>Phase 1 planes mode: world pose until RoomModel walls exist.</summary>
+        public bool hasWorldPose;
+        public Vec3Data worldPosition;
+        public float worldEulerY;
     }
 
     [Serializable]
@@ -131,7 +136,13 @@ namespace SmartElectric.Domain
             meta.appVersion = AppVersion;
         }
 
-        public DeviceData AddDevice(ElectricalDeviceType type, string wallId, Vec2Data localPosition)
+        public DeviceData AddDevice(
+            ElectricalDeviceType type,
+            string wallId,
+            Vec2Data localPosition,
+            bool hasWorldPose = false,
+            Vec3Data worldPosition = default,
+            float worldEulerY = 0f)
         {
             if (devices == null)
                 devices = new List<DeviceData>();
@@ -142,8 +153,12 @@ namespace SmartElectric.Domain
                 type = type,
                 wallId = wallId ?? string.Empty,
                 localPosition = localPosition,
-                rotation = 0f
+                rotation = 0f,
+                hasWorldPose = hasWorldPose,
+                worldPosition = worldPosition,
+                worldEulerY = worldEulerY
             };
+
             devices.Add(device);
             TouchUpdated();
             return device;

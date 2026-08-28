@@ -1,17 +1,37 @@
-# Phase 1 — wire SmartElectric into the AR scene
+# Phase 1 — wire-up & T2 product scene
 
 Nav: [docs index](../README.md) · [template exit](from-template-to-product.md) · [install](install-and-deploy.md)
 
-After Domain/AR scripts imported in Unity:
+## Product scene (already in repo)
 
-1. Open `Assets/Scenes/SampleScene.unity` (template AR scene).
-2. Menu **SmartElectric → Setup Phase1 On Open Scene**.
-3. Confirm Hierarchy has `SmartElectric_Runtime` with `ProjectSession`, `ArDevicePlacer`, `ProjectDebugHud`.
-4. Ensure scene has `ARRaycastManager` (template XR Origin usually does).
-5. Play or Build And Run:
-   - Wait for planes
-   - HUD: **Outlet** / **Panel**
-   - Tap plane to place
-   - **Save** / **Load** (JSON under `persistentDataPath/projects/`)
+`Assets/_Project/Scenes/ARPlacement.unity` is the **main build scene** (Build Settings index 0).
 
-Still **T1 Parallel** — product code in `_Project`, template scene reused. Next: own scene (**T2**).
+It includes XR from the template, disabled demo UI, and `SmartElectric_Runtime`.
+
+### Open in Unity
+
+1. If Unity was open during git pull — **Assets → Refresh** (or restart Editor).
+2. **Project** → `Assets/_Project/Scenes` → double-click **ARPlacement**.
+3. **File → Build And Run** (or Play on device).
+
+### On device
+
+1. Wait for planes.
+2. HUD (top-left): **Outlet** / **Panel** → tap wall/floor.
+3. **Save** / **Load** — JSON in `persistentDataPath/projects/current_room.json` (path in Console on Save).
+
+## Recreate scene (optional)
+
+If scene breaks: close Unity, then either:
+
+- Menu **SmartElectric → Create ARPlacement Scene (T2)** (overwrite), or  
+- Re-copy from git / run Unity batchmode when Editor is **closed**.
+
+## Alternate — patch any open scene
+
+**SmartElectric → Setup Phase1 On Open Scene** — adds `SmartElectric_Runtime` only.
+
+## Next
+
+- Verify on phone → close **T2** gate in [from-template-to-product.md](from-template-to-product.md)
+- Later **T3**: remove `MobileARTemplateAssets` / `Samples`

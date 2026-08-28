@@ -9,6 +9,8 @@ namespace SmartElectric.AR
     {
         [SerializeField] string saveFileName = "current_room.json";
         [SerializeField] string defaultRoomName = "Room";
+        [SerializeField] GameObject outletPrefab;
+        [SerializeField] GameObject panelPrefab;
 
         readonly Dictionary<string, GameObject> spawnedByDeviceId = new Dictionary<string, GameObject>();
 
@@ -101,13 +103,10 @@ namespace SmartElectric.AR
             for (var i = 0; i < Room.devices.Count; i++)
             {
                 var d = Room.devices[i];
-                var pos = new Vector3(d.localPosition.x, d.localPosition.y, 0f);
-                var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                var pose = DeviceVisualFactory.GetPose(d);
+                var prefab = d.type == ElectricalDeviceType.Panel ? panelPrefab : outletPrefab;
+                var go = DeviceVisualFactory.Spawn(prefab, pose, d.type);
                 go.name = $"{d.type}_{d.id}";
-                go.transform.position = pos;
-                go.transform.localScale = d.type == ElectricalDeviceType.Panel
-                    ? new Vector3(0.35f, 0.5f, 0.08f)
-                    : new Vector3(0.12f, 0.08f, 0.04f);
                 spawnedByDeviceId[d.id] = go;
             }
         }

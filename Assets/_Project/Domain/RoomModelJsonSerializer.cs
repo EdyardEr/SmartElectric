@@ -338,6 +338,9 @@ namespace SmartElectric.Domain
         public LocalPosDto localPosition = new LocalPosDto();
         public float rotation;
         public string catalogId;
+        public bool hasWorldPose;
+        public Vec3Dto worldPosition;
+        public float worldEulerY;
 
         public static DeviceDto From(DeviceData d) => new DeviceDto
         {
@@ -346,7 +349,10 @@ namespace SmartElectric.Domain
             wallId = d.wallId,
             localPosition = LocalPosDto.From(d.localPosition),
             rotation = d.rotation,
-            catalogId = d.catalogId
+            catalogId = d.catalogId,
+            hasWorldPose = d.hasWorldPose,
+            worldPosition = d.hasWorldPose ? Vec3Dto.From(d.worldPosition) : null,
+            worldEulerY = d.worldEulerY
         };
 
         public DeviceData ToModel() => new DeviceData
@@ -356,7 +362,10 @@ namespace SmartElectric.Domain
             wallId = wallId,
             localPosition = localPosition != null ? localPosition.ToModel() : new Vec2Data(0f, 0f),
             rotation = rotation,
-            catalogId = catalogId
+            catalogId = catalogId,
+            hasWorldPose = hasWorldPose,
+            worldPosition = worldPosition != null ? worldPosition.ToModel() : new Vec3Data(0f, 0f, 0f),
+            worldEulerY = worldEulerY
         };
     }
 

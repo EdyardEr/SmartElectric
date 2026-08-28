@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Project/Scenes/ARPlacement.unity
+    guid: a3f8c2e14b9d64f0a8e2c1d5b7e90421
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 4755b35b590504809a7525fd2109c2e2
   m_configObjects:

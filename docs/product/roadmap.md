@@ -12,8 +12,10 @@ Order: ship live AR before LiDAR. LiDAR only upgrades scan quality.
 
 - [x] Domain `RoomModel` + JSON save/load (`Assets/_Project/Domain`)
 - [x] Tap-to-place Outlet/Panel on AR planes + debug HUD
-- [ ] Wire into SampleScene via menu (see [phase1-wire-up](../setup/phase1-wire-up.md)) — **do in Editor**
-- [ ] Own product scene (template exit **T2**)
+- [x] World pose in JSON (`hasWorldPose`) for Save/Load on device
+- [x] Editor menu **Create ARPlacement Scene (T2)** + Build Settings helper
+- [x] `ARPlacement.unity` committed (demo UI off, SmartElectric_Runtime wired)
+- [ ] Verify on phone: planes + place + save/load ([phase1-wire-up](../setup/phase1-wire-up.md))
 - Vertical / horizontal planes (template)
 - Save project as RoomModel JSON
 - Covers most devices early; proves the core feature

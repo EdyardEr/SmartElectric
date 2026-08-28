@@ -8,11 +8,12 @@ using UnityEngine.XR.ARSubsystems;
 namespace SmartElectric.AR
 {
     /// <summary>
-    /// Phase 1: tap/click vertical (or any) AR plane → spawn device prefab and record in RoomModel.
-    /// Add to the AR scene next to XR Origin; assign ARRaycastManager.
+    /// Phase 1: tap/click AR plane → spawn device and record world pose in RoomModel.
     /// </summary>
     public sealed class ArDevicePlacer : MonoBehaviour
     {
+        const string PlaneWallId = "ar_plane";
+
         [SerializeField] ARRaycastManager raycastManager;
         [SerializeField] ProjectSession session;
         [SerializeField] GameObject outletPrefab;
@@ -71,7 +72,7 @@ namespace SmartElectric.AR
             if (!raycastManager.Raycast(screenPos, hits, TrackableType.PlaneWithinPolygon))
                 return;
 
-            ARRaycastHit chosen = hits[0];
+            var chosen = hits[0];
             if (preferVerticalPlanes)
             {
                 for (var i = 0; i < hits.Count; i++)
@@ -86,39 +87,22 @@ namespace SmartElectric.AR
             }
 
             var pose = chosen.pose;
-            var prefab = session.ActiveDeviceType == ElectricalDeviceType.Panel ? panelPrefab : outletPrefab;
-            var instance = SpawnVisual(prefab, pose, session.ActiveDeviceType);
+            var type = session.ActiveDeviceType;
+            var prefab = type == ElectricalDeviceType.Panel ? panelPrefab : outletPrefab;
+            var instance = DeviceVisualFactory.Spawn(prefab, pose, type);
 
-            var wall = session.Room.EnsureDefaultWall();
-            // Approximate wall-local: x along hit, y = height from floor (pose.y).
-            var local = new Vec2Data(pose.position.x, pose.position.y);
-            var device = session.Room.AddDevice(session.ActiveDeviceType, wall.id, local);
+            var p = pose.position;
+            var local = new Vec2Data(p.x, p.y);
+            var world = new Vec3Data(p.x, p.y, p.z);
+            var device = session.Room.AddDevice(
+                type,
+                PlaneWallId,
+                local,
+                hasWorldPose: true,
+                worldPosition: world,
+                worldEulerY: pose.rotation.eulerAngles.y);
             session.RegisterSpawned(device.id, instance);
             session.NotifyChanged();
-        }
-
-        static GameObject SpawnVisual(GameObject prefab, Pose pose, ElectricalDeviceType type)
-        {
-            if (prefab != null)
-            {
-                return Instantiate(prefab, pose.position, pose.rotation);
-            }
-
-            var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            go.name = type == ElectricalDeviceType.Panel ? "Panel" : "Outlet";
-            go.transform.SetPositionAndRotation(pose.position, pose.rotation);
-            var scale = type == ElectricalDeviceType.Panel
-                ? new Vector3(0.35f, 0.5f, 0.08f)
-                : new Vector3(0.12f, 0.08f, 0.04f);
-            go.transform.localScale = scale;
-            var renderer = go.GetComponent<Renderer>();
-            if (renderer != null)
-            {
-                renderer.material.color = type == ElectricalDeviceType.Panel
-                    ? new Color(0.2f, 0.45f, 0.85f)
-                    : new Color(0.95f, 0.85f, 0.2f);
-            }
-            return go;
         }
     }
 }

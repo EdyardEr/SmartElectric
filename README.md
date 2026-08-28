@@ -9,7 +9,7 @@ Mobile AR: scan a room → place outlets/panels → auto wiring routes + cost es
 3. [Roadmap](docs/product/roadmap.md) — what we build now
 4. [AGENTS.md](AGENTS.md) — short brief for AI
 
-**Now:** Phase 1 — RoomModel + place/save in `_Project`. Wire scene: [phase1-wire-up](docs/setup/phase1-wire-up.md).
+**Now:** Open `Assets/_Project/Scenes/ARPlacement.unity` in Unity → Build And Run. See [phase1-wire-up](docs/setup/phase1-wire-up.md).
 
 ## Modes (one RoomModel)
 
